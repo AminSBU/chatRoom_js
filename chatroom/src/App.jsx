@@ -11,9 +11,14 @@ function App() {
 
   return (
     <>
-      <div className="parent">
-        <div className="div1"><Chatbox /></div>
-        <div className="div2"><Sidebox /></div>
+      <div className="grid grid-cols-5 grid-rows-5 gap-2 h-screen">
+        <div className="col-span-4 row-span-5">
+          <Chatbox />
+        </div>
+
+        <div className="col-start-5 row-span-5">
+          <Sidebox />
+        </div>
       </div>
     </>
   )
