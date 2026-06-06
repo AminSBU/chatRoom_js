@@ -1,44 +1,44 @@
-import React, { useState } from "react";
-import heroImg from "./img/bg.png"
+import { useState } from "react";
 
-function Chatbox()
-{
-    const [message, setMessage] = useState("");
-    const [messages, setMessages] = useState([]);
+function Chatbox() {
 
-    const handleKeyDown = (e) => {
+  const [message, setMessage] = useState("");
+  const [messages, setMessages] = useState([]);
+
+  const handleKeyDown = (e) => {
     if (e.key === "Enter" && message.trim() !== "") {
       setMessages([...messages, message]);
       setMessage("");
     }
   };
-    return(
-        <>
-            <div
-            className="w-full h-full bg-cover bg-center bg-no-repeat flex flex-col"
-            style={{ backgroundImage: `url(${heroImg})` }}
-            >
-            {/* فضای پیام‌ها */}
-            <div className="chat-messages">
-                {messages.map((msg, index) => (
-                <div className="chat-box" key={index}>
-                    {msg}
-                </div>
-                ))}
-            </div>
 
-            {/* input پایین صفحه */}
-            <div className="p-4">
-                <input
-                type="text"
-                placeholder="پیام خود را بنویس..."
-                onChange={(e) => setMessage(e.target.value)}
-                onKeyDown={handleKeyDown}
-                className="w-full p-3 rounded-lg border"
-                />
-            </div>
-            </div>
-        </>
-    )
+  return (
+    <div className="flex flex-col h-screen p-6 bg-gray-100">
+
+      {/* messages */}
+      <div className="flex-1 overflow-y-auto space-y-3 mb-4">
+        {messages.map((msg, index) => (
+          <div
+            key={index}
+            className="bg-blue-500 text-white px-4 py-2 rounded-xl w-fit max-w-[70%]"
+          >
+            {msg}
+          </div>
+        ))}
+      </div>
+
+      {/* input */}
+      <input
+        type="text"
+        className="border rounded-xl p-3 outline-none focus:ring-2 focus:ring-purple-400"
+        placeholder="پیام بنویس..."
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+        onKeyDown={handleKeyDown}
+      />
+
+    </div>
+  );
 }
+
 export default Chatbox;
