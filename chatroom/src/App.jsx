@@ -11,9 +11,9 @@ function App() {
 
   return (
     <>
-      <div class="parent">
-        <div class="div1"><Chatbox /></div>
-        <div class="div2"><Sidebox /></div>
+      <div className="parent">
+        <div className="div1"><Chatbox /></div>
+        <div className="div2"><Sidebox /></div>
       </div>
     </>
   )

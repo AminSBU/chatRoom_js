@@ -1,11 +1,11 @@
 import React from "react";
 
-function chatbox()
+function Chatbox()
 {
     return(
         <>
-            <p1> chatbox</p1>
+            <p1> Chatbox</p1>
         </>
     )
 }
-export default chatbox;
+export default Chatbox;

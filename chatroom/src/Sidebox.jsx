@@ -8,4 +8,4 @@ function Sidebox()
         </>
     )
 }
-export default Side
+export default Sidebox;
