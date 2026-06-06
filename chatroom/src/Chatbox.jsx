@@ -31,7 +31,7 @@ function Chatbox() {
       <input
         type="text"
         className="border rounded-xl p-3 outline-none focus:ring-2 focus:ring-purple-400"
-        placeholder="پیام بنویس..."
+        placeholder="پیام بنویس........"
         value={message}
         onChange={(e) => setMessage(e.target.value)}
         onKeyDown={handleKeyDown}
