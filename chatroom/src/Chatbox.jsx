@@ -1,16 +1,20 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 function Chatbox() {
-
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
+  const messagesEndRef = useRef(null);
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && message.trim() !== "") {
-      setMessages([...messages, message]);
+      setMessages((prev) => [...prev, message]);
       setMessage("");
     }
   };
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
 
   return (
     <div className="flex flex-col h-screen p-6 bg-gray-100">
@@ -25,6 +29,7 @@ function Chatbox() {
             {msg}
           </div>
         ))}
+        <div ref={messagesEndRef} />
       </div>
 
       {/* input */}
@@ -36,7 +41,6 @@ function Chatbox() {
         onChange={(e) => setMessage(e.target.value)}
         onKeyDown={handleKeyDown}
       />
-
     </div>
   );
 }
