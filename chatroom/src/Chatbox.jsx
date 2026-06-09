@@ -30,7 +30,10 @@ function Chatbox({ chatBoxBg }) {
 
   return (
     /* main container */
-    <div className={`flex flex-col h-screen p-6 ${chatBoxBg}`}>
+    <div className={`flex flex-col dir="rtl" h-screen p-6 ${chatBoxBg}`}>
+      <div className="flex rounded-xl border-2 mb-4 p-2">
+        <p1>chatbox</p1>
+      </div>
       {/* messages container */}
       <div className="flex-1 overflow-y-auto space-y-3 mb-4"> 
         {/* send messages into array with index */}
