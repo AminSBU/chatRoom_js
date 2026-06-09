@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 
-function Chatbox() {
+function Chatbox({ chatBoxBg }) {
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
   const messagesEndRef = useRef(null);
@@ -17,9 +17,7 @@ function Chatbox() {
   }, [messages]);
 
   return (
-    <div className="flex flex-col h-screen p-6 bg-gray-100">
-
-      {/* messages */}
+    <div className={`flex flex-col h-screen p-6 ${chatBoxBg}`}>
       <div className="flex-1 overflow-y-auto space-y-3 mb-4">
         {messages.map((msg, index) => (
           <div
@@ -32,11 +30,10 @@ function Chatbox() {
         <div ref={messagesEndRef} />
       </div>
 
-      {/* input */}
       <input
         type="text"
         className="border rounded-xl p-3 outline-none focus:ring-2 focus:ring-purple-400"
-        placeholder="پیام بنویس........"
+        placeholder="پیام ......."
         value={message}
         onChange={(e) => setMessage(e.target.value)}
         onKeyDown={handleKeyDown}
