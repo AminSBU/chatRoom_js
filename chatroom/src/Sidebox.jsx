@@ -40,7 +40,7 @@ function Sidebar() {
   ];
 
   return (
-    <div className="text-[14px] h-screen bg-white border-l border-gray-200 p-4">
+    <div dir="rtl" className="text-[14px] h-screen bg-white border-l border-gray-200 p-4">
       <h2 className="text-[14px] text-xl font-bold mb-4 text-gray-800">مخاطبین</h2>
 
       <div className="space-y-3">
@@ -51,12 +51,12 @@ function Sidebar() {
           >
             <div className="flex items-center gap-3">
               <div className="relative">
-                <div className="w-12 h-12 rounded-full bg-purple-500 text-white flex items-center justify-center font-bold text-lg">
+                <div className="text-xs w-12 h-12 rounded-full bg-purple-500 text-white flex items-center justify-center font-bold">
                   {contact.name.charAt(0)}
                 </div>
 
                 <span
-                  className={`absolute bottom-0 left-0 w-3 h-3 rounded-full border-2 border-white ${
+                  className={`text-xs absolute bottom-0 left-0 w-3 h-3 rounded-full border-2 border-white ${
                     contact.online ? "bg-green-500" : "bg-gray-400"
                   }`}
                 ></span>
@@ -64,8 +64,8 @@ function Sidebar() {
 
               <div>
                 <h3 className="font-semibold text-gray-800">{contact.name}</h3>
-                <p className="text-sm text-gray-500 truncate max-w-[150px] text-sm">
-                  {contact.lastMessage}
+                <p className="text-gray-500 truncate">
+                  {contact.lastMessage.length > 10 ? `${contact.lastMessage.slice(0, 10)}...` : contact.lastMessage}
                 </p>
               </div>
             </div>
