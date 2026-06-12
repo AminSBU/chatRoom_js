@@ -64,13 +64,11 @@ function Sidebar() {
 
               <div>
                 <h3 className="font-semibold text-gray-800">{contact.name}</h3>
-                <p className="text-sm text-gray-500 truncate max-w-[150px]">
+                <p className="text-sm text-gray-500 truncate max-w-[150px] text-sm">
                   {contact.lastMessage}
                 </p>
               </div>
             </div>
-
-            <span className="text-xs text-gray-400">{contact.time}</span>
           </div>
         ))}
       </div>
